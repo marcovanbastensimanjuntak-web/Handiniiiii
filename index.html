@@ -82,13 +82,13 @@ body {
 
 .flower {
     font-size: 22px;
-    color: #f28fb3; /* pink */
+    color: #f28fb3;
     opacity: 0.8;
 }
 
 .leaf {
     font-size: 18px;
-    color: #5fa76a; /* hijau */
+    color: #5fa76a;
     opacity: 0.7;
 }
 
@@ -108,23 +108,14 @@ body {
 
 <div id="content">
     <div class="text">
-        Handini sayang,  
-        kamu ga boleh pesimis ya.  
-        Kamu itu perempuan yang kuat, berani, dan luar biasa.  
-        Basten selalu bangga sama kamu, dan kamu itu panutanku haholonganku.  
-
+        Handini sayang, kamu ga boleh pesimis ya. Kamu itu perempuan yang kuat, berani, dan luar biasa. Basten selalu bangga sama kamu, dan kamu itu panutanku haholonganku.
         <br><br>
-
-        Jangan pernah merasa kurang, jangan meragukan dirimu sendiri.  
-        Handini ga boleh lupa sama ayat Alkitab yang selalu kita dengerin sayanggg. 
-        Jalani semua dengan semangat dan keyakinan, Basten selalu ada di sini kok.
-
+        Jangan pernah merasa kurang, jangan meragukan dirimu sendiri. Handini ga boleh lupa sama ayat Alkitab yang selalu kita dengerin sayanggg. Jalani semua dengan semangat dan keyakinan, Basten selalu ada di sini kok.
         <br><br>
-
         Kalau Handini pesimis, Basten pesimis juga lohh, hiks.
     </div>
 
-   <img src="foto.jpeg" alt="Handini">
+    <img src="foto.jpeg" alt="Handini" class="photo">
 </div>
 
 <audio id="music" loop>
@@ -158,7 +149,6 @@ function createFlower() {
     flower.style.left = Math.random() * 100 + "vw";
     flower.style.animationDuration = (10 + Math.random() * 8) + "s";
     document.body.appendChild(flower);
-
     setTimeout(() => flower.remove(), 20000);
 }
 
@@ -169,11 +159,9 @@ function createLeaf() {
     leaf.style.left = Math.random() * 100 + "vw";
     leaf.style.animationDuration = (12 + Math.random() * 10) + "s";
     document.body.appendChild(leaf);
-
     setTimeout(() => leaf.remove(), 22000);
 }
 </script>
 
 </body>
 </html>
-
