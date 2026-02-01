@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Untuk Handini 🌸</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f7e8f0, #e8f1ff);
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: #4a4a4a;
+    }
+
+    .center {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .start-btn {
+      padding: 18px 30px;
+      font-size: 20px;
+      background: #ffb6c1;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      color: #fff;
+      box-shadow: 0 10px 25px rgba(255,182,193,0.4);
+      transition: 0.3s;
+    }
+
+    .start-btn:hover {
+      transform: scale(1.05);
+      background: #ff9eb5;
+    }
+
+    .content {
+      display: none;
+      padding: 80px 20px;
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+      animation: fadeIn 2s ease;
+    }
+
+    .content img {
+      width: 280px;
+      border-radius: 20px;
+      margin-top: 30px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+      animation: zoomIn 2s ease;
+    }
+
+    .text {
+      font-size: 18px;
+      line-height: 1.8;
+      margin-top: 30px;
+      animation: fadeUp 2s ease;
+    }
+
+    .highlight {
+      color: #e75480;
+      font-weight: 600;
+    }
+
+    /* Flower animation */
+    .flower {
+      position: fixed;
+      top: -50px;
+      font-size: 22px;
+      animation: fall linear infinite;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-50px) rotate(0deg);
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes zoomIn {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- START SCREEN -->
+  <div class="center" id="startScreen">
+    <button class="start-btn" onclick="startStory()">Klik di sini 🌸</button>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="content" id="mainContent">
+    <div class="text">
+      Handiniii sayanggg, dengar yaaa 🤍<br><br>
+
+      Kamu itu <span class="highlight">ga boleh pesimis</span>.  
+      Kamu jauh lebih kuat, lebih hebat, dan lebih keren dari yang kamu kira.  
+      Aku selalu lihat kamu sebagai <span class="highlight">panutanku</span>,  
+      seseorang yang tetap jalan walau capek, tetap berusaha walau ragu.<br><br>
+
+      Jangan insecure ya sayanggg.  
+      Dunia ini keras, tapi kamu lebih tangguh.  
+      Langkahmu mungkin pelan, tapi arahnya selalu ke depan.  
+      Dan aku bangga banget bisa kenal, bisa sayang, bisa jalan bareng kamu 🤍
+      <br><br>
+
+      <i>(kalau Handini pesimis, basten pesimis juga lohh hiks)</i>
+    </div>
+
+    <img src="foto.jpg" alt="Handini">
+  </div>
+
+  <script>
+    function startStory() {
+      document.getElementById("startScreen").style.display = "none";
+      document.getElementById("mainContent").style.display = "block";
+      startFlowers(12); // awal agak banyak
+      setTimeout(() => startFlowers(4), 6000); // lalu dikurangi & slow
+    }
+
+    function startFlowers(count) {
+      for (let i = 0; i < count; i++) {
+        createFlower();
+      }
+    }
+
+    function createFlower() {
+      const flower = document.createElement("div");
+      flower.className = "flower";
+      flower.innerHTML = "🌸";
+      flower.style.left = Math.random() * 100 + "vw";
+      flower.style.animationDuration = (8 + Math.random() * 6) + "s";
+      document.body.appendChild(flower);
+
+      setTimeout(() => {
+        flower.remove();
+      }, 15000);
+    }
+  </script>
+
+</body>
+</html>
