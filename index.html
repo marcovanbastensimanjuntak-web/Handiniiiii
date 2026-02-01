@@ -8,13 +8,14 @@
 <style>
 body {
     margin: 0;
-    padding: 0;
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(180deg, #fdf1f5, #f7e8ee);
+    background: linear-gradient(180deg, #fdecef, #f7e6eb);
     overflow-x: hidden;
     text-align: center;
+    color: #5a3a44;
 }
 
+/* HALAMAN AWAL */
 #startScreen {
     height: 100vh;
     display: flex;
@@ -24,46 +25,46 @@ body {
 
 #startBtn {
     font-size: 22px;
-    padding: 18px 32px;
+    padding: 18px 36px;
     border: none;
-    border-radius: 40px;
-    background: #e8aebe;
-    color: #fff;
+    border-radius: 50px;
+    background: #f2a1b3;
+    color: white;
     cursor: pointer;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
     transition: transform 0.3s;
 }
 
 #startBtn:hover {
-    transform: scale(1.05);
+    transform: scale(1.06);
 }
 
+/* KONTEN */
 #content {
     display: none;
-    padding: 40px 20px;
-}
-
-.photo {
-    width: 260px;
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-    margin: 30px 0;
-    animation: fadeUp 2s ease forwards;
+    padding: 50px 20px;
 }
 
 .text {
-    max-width: 650px;
+    max-width: 680px;
     margin: auto;
     font-size: 18px;
-    line-height: 1.8;
-    color: #5a3a44;
+    line-height: 1.9;
+    animation: fadeUp 2s ease forwards;
+}
+
+.photo {
+    width: 270px;
+    border-radius: 22px;
+    margin-top: 35px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.25);
     animation: fadeUp 2.5s ease forwards;
 }
 
 @keyframes fadeUp {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(35px);
     }
     to {
         opacity: 1;
@@ -71,18 +72,29 @@ body {
     }
 }
 
-/* BUNGA */
-.flower {
+/* BUNGA & DAUN */
+.flower, .leaf {
     position: fixed;
     top: -10%;
-    font-size: 22px;
+    pointer-events: none;
     animation: fall linear infinite;
+}
+
+.flower {
+    font-size: 22px;
+    color: #f28fb3; /* pink */
+    opacity: 0.8;
+}
+
+.leaf {
+    font-size: 18px;
+    color: #5fa76a; /* hijau */
     opacity: 0.7;
 }
 
 @keyframes fall {
     to {
-        transform: translateY(120vh);
+        transform: translateY(120vh) rotate(360deg);
     }
 }
 </style>
@@ -97,23 +109,22 @@ body {
 <div id="content">
     <div class="text">
         Handini sayang,  
-        kamu itu tidak boleh pesimis ya.  
-        Kamu adalah perempuan kuat, hebat, dan penuh kasih.  
-        Aku bangga banget punya kamu sebagai panutanku.  
-        Jangan ragu sama dirimu sendiri, karena di mataku,  
-        kamu selalu cukup dan luar biasa.
+        kamu ga boleh pesimis ya.  
+        Kamu itu perempuan yang kuat, berani, dan luar biasa.  
+        Basten selalu bangga sama kamu, dan kamu itu panutanku haholonganku.  
 
         <br><br>
 
-        Tetap semangat ya sayang, jalani hari-harimu dengan berani.  
-        Aku selalu ada, meskipun tidak selalu di sampingmu.
+        Jangan pernah merasa kurang, jangan meragukan dirimu sendiri.  
+        Handini ga boleh lupa sama ayat Alkitab yang selalu kita dengerin sayanggg. 
+        Jalani semua dengan semangat dan keyakinan, Basten selalu ada di sini kok.
 
         <br><br>
 
         Kalau Handini pesimis, Basten pesimis juga lohh, hiks.
     </div>
 
-    <img src="handini.jpg" alt="Handini" class="photo">
+    <img src="foto.jpeg" alt="Handini" class="photo">
 </div>
 
 <audio id="music" loop>
@@ -130,25 +141,38 @@ btn.addEventListener("click", () => {
     startScreen.style.display = "none";
     content.style.display = "block";
     music.play();
-    createFlowers(25);
+    createDecorations();
 });
 
-function createFlowers(count) {
-    for (let i = 0; i < count; i++) {
-        const flower = document.createElement("div");
-        flower.classList.add("flower");
-        flower.innerHTML = "❀";
-        flower.style.left = Math.random() * 100 + "vw";
-        flower.style.animationDuration = (8 + Math.random() * 6) + "s";
-        document.body.appendChild(flower);
-
-        setTimeout(() => {
-            flower.remove();
-        }, 15000);
+function createDecorations() {
+    for (let i = 0; i < 18; i++) {
+        createFlower();
+        createLeaf();
     }
+}
+
+function createFlower() {
+    const flower = document.createElement("div");
+    flower.className = "flower";
+    flower.innerHTML = "❀";
+    flower.style.left = Math.random() * 100 + "vw";
+    flower.style.animationDuration = (10 + Math.random() * 8) + "s";
+    document.body.appendChild(flower);
+
+    setTimeout(() => flower.remove(), 20000);
+}
+
+function createLeaf() {
+    const leaf = document.createElement("div");
+    leaf.className = "leaf";
+    leaf.innerHTML = "❦";
+    leaf.style.left = Math.random() * 100 + "vw";
+    leaf.style.animationDuration = (12 + Math.random() * 10) + "s";
+    document.body.appendChild(leaf);
+
+    setTimeout(() => leaf.remove(), 22000);
 }
 </script>
 
 </body>
 </html>
-
